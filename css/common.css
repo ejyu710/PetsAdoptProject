@@ -1,0 +1,55 @@
+/* Common style by EJ */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  background-color: #4b9c60;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 15px;
+}
+
+/* usable for specific elements by EJ */
+.special-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+/* Create game.html, index.html style by EJ */
+
+.bg-image-section {
+  background-image: url('../img/pet-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.bg-image-section .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 60px 20px;
+  border-radius: 8px;
+}
+
+
+/* Create adopt.html, available.html style by [your name] */
+
+
