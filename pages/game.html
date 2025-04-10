@@ -1,17 +1,25 @@
+<!-- Create by Eunji -->
+<!-- A game to find the pet that best matches you -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Pet Story</title>
+  <title>My Pet Story - Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Take a quick and fun pet personality quiz to find out whether you're more like a dog or a cat. Discover your perfect pet match">
+  <meta name="keywords" content="pet quiz, animal match, personality game, pet game, mini game">
+  <meta name="author" content="Eunji Yu">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Google Fonts: Roboto (common font), Monomakh (usable for specific elements) -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display&display=swap" rel="stylesheet">
-
-  <!-- common css -->
+  
+  <!-- Common CSS -->
   <link rel="stylesheet" type="text/css" href="../css/common.css">
 
 </head>
@@ -30,13 +38,12 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="available.html">Available Pets</a></li>
           <li class="nav-item"><a class="nav-link" href="adopt.html">Adopt</a></li>
-          <li class="nav-item"><a class="nav-link" href="game.html">Game</a></li>
+          <li class="nav-item"><a class="nav-link active" href="game.html">Game</a></li>
         </ul>
       </div>
     </div>
@@ -45,7 +52,21 @@
   <!-- Main Content -->
   <div class="content container">
     <!-- Editable section start -->
-   
+    <div class="game-box" id="quizBox">
+      <h2 class="mb-4 special-title">🐾 Which Pet Suits You Best?</h2>
+      <p id="quizQ"></p>
+      <button id="yesBtn" class="btn btn-success quiz-btn">Yes</button>
+      <button id="noBtn" class="btn btn-secondary quiz-btn">No</button>
+
+      <!-- Result text -->
+      <p id="resultText" class="mt-4 fw-bold main-text-color"></p>
+
+      <!-- Restart button -->
+      <div class="d-flex justify-content-center mt-3">
+        <button id="restartBtn" class="btn btn-outline-primary">Try Again</button>
+      </div>
+
+    </div>
     <!-- Editable section end -->
   </div>
 
@@ -62,5 +83,6 @@
 
   <!-- Custom JS -->
   <script src="../javascript/game.js"></script>
+
 </body>
 </html>
