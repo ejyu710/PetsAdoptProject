@@ -1,0 +1,132 @@
+<!--This file created by: Kübra Veli-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Guardians Hub</title>
+    <meta name="community"
+          content="Join a team of animal lovers making real change. Every helping hand counts.">
+    <meta name="values" content="animal care, volunteering, shelter work, community help">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Social Sharing Enhancements-->
+    <meta property="og:title" content="Help Speak Up for Shelter Pets – Be a Volunteer">
+    <meta property="og:community"
+          content="You can brighten a pet’s day. Be part of their journey to a new home.">
+    <meta property="og:image" content="../img/guardians-hero.jpg">
+    <!--Framework-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+          rel="stylesheet">
+    <!--common CSS file-->
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<header class="header">
+    <h1>My Pet Story</h1>
+    <p>Every pet deserves a happy ending</p>
+</header>
+
+<!--Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="volunteer.html">Volunteer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home Page</a></li>
+                <li class="nav-item"><a class="nav-link" href="available.html">Available Pets</a></li>
+                <li class="nav-item"><a class="nav-link" href="adopt.html">Adopt</a></li>
+                <li class="nav-item"><a class="nav-link" href="game.html">Game</a></li>
+                <li class="nav-item"><a class="nav-link active" href="volunteer.html">Volunteer</a></li>
+                <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Content-->
+<main class="content container">
+    <h2 class="mission-header mb-4">How Would You Like to Help?</h2>
+
+
+    <!--Form-->
+    <section aria-label="Volunteer Sign Up">
+        <form id="guardian-application" novalidate>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="guardianName" class="form-label">What’s your name?</label>
+                    <input type="text" class="form-control" id="guardianName" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="guardianEmail" class="form-label">What’s your email?</label>
+                    <input type="email" class="form-control" id="guardianEmail" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="guardianContact" class="form-label">Your phone</label>
+                    <input type="tel" class="form-control" id="guardianContact"
+                           pattern="^\+?[1-9]\d{9,14}$"
+                           placeholder="+901234567890"
+                           required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="servicePreference" class="form-label">Pick a role you would enjoy</label>
+                    <select class="form-select" id="servicePreference" required>
+                        <option value="">Where would you love to help?</option>
+                        <option value="Animal Socialization">Hanging out with animals</option>
+                        <option value="Event Management">Helping at events</option>
+                        <option value="Fund Development">Fundraising support</option>
+                        <option value="Operations">Behind-the-scenes work</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset class="border p-3">
+                        <legend class="form-label">What are you great at?</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="talents" id="talent1"
+                                   value="Communication">
+                            <label class="form-check-label" for="talent1">Talking clearly and kindly</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="talents" id="talent2"
+                                   value="Teamwork">
+                            <label class="form-check-label" for="talent2">Working well with others</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="talents" id="talent3"
+                                   value="Organization">
+                            <label class="form-check-label" for="talent3">Keeping things organized</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="talents" id="talent4"
+                                   value="Problem Solving">
+                            <label class="form-check-label" for="talent4">Finding smart solutions</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <button id="randomBtn" class="btn btn-success mt-5">Count me in!</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 My Pet Story. All rights reserved.</p>
+    </div>
+</footer>
+
+<!--Scripts-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../javascript/volunteer.js"></script>
+</body>
+</html>
