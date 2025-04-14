@@ -45,8 +45,58 @@
   <!-- Main Content -->
   <div class="content container">
     <!-- Editable section start -->
-    <button type="button" onclick="hello()">Try it</button>
-    <!-- Editable section end -->
+<h2 class="text-center my-4">Available Pets</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+
+  <div class="col">
+    <div class="card h-100 shadow-sm" onclick="showDetails('Bella')" data-pet="Bella: A playful 2-year-old Golden Retriever. Loves fetch and cuddles. Vaccinated and ready for adoption.">
+      <img src="../img/golden-retriever-min.jpg" class="card-img-top" alt="Bella">
+      <div class="card-body">
+        <h5 class="card-title">Bella</h5>
+        <p class="card-text">Golden Retriever, 2 years old</p>
+        <!--<button class="btn btn-primary" type="button" onclick="adopt.html">Adopt</button>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100 shadow-sm" onclick="showDetails('Milo')" data-pet="Milo: A strong 3-year-old Siberian Husky. Active and needs space to run. Loves snow and squeaky toys.">
+      <img src="../img/husky-min.jpg" class="card-img-top" alt="Milo">
+      <div class="card-body">
+        <h5 class="card-title">Milo</h5>
+        <p class="card-text">Siberian Husky, 3 years old</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100 shadow-sm" onclick="showDetails('Luna')" data-pet="Luna: 1-year-old Persian cat. Calm and affectionate. Perfect lap pet. Likes quiet places and warm laps.">
+      <img src="../img/persian-cat-min.png" class="card-img-top" alt="Luna">
+      <div class="card-body">
+        <h5 class="card-title">Luna</h5>
+        <p class="card-text">Persian Cat, 1 year old</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100 shadow-sm" onclick="showDetails('Charlie')" data-pet="Charlie: Beagle, 4 years old. Curious and energetic. Loves walks and treats. Very loyal.">
+      <img src="../img/beagle-min.jpg" class="card-img-top" alt="Charlie">
+      <div class="card-body">
+        <h5 class="card-title">Charlie</h5>
+        <p class="card-text">Beagle, 4 years old</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal or alert area -->
+<div id="pet-details" class="alert alert-info mt-4 d-none">
+  <p id="pet-info-text"></p>
+  <a href="adopt.html" class="adopt-btn btn btn-primary mt-2">Adopt Me</a>
+</div>
+<!-- Editable section end -->
+
   </div>
 
   <!-- Footer -->
