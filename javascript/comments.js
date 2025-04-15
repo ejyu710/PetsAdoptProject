@@ -3,7 +3,6 @@ $(document).ready(function () {
     // Load existing comments
     loadComments();
 
-    // Form submission handler
     $("#comment-form").submit(function (e) {
         const form = this;
 
@@ -17,7 +16,6 @@ $(document).ready(function () {
 
         e.preventDefault();
 
-        // Get form data
         const commentData = {
             name: $("#commentName").val().trim(),
             email: $("#commentEmail").val().trim(),
@@ -25,7 +23,6 @@ $(document).ready(function () {
             timestamp: new Date().toISOString()
         };
 
-        // Create comment HTML
         const commentHtml = `
             <div class="col-12">
                 <div class="card shadow-sm mb-3">
@@ -38,14 +35,13 @@ $(document).ready(function () {
                         </h5>
                         <p class="card-text">${commentData.text}</p>
                         <button class="btn btn-danger btn-sm delete-btn">
-                            Remove
+                            Delete this comment
                         </button>
                     </div>
                 </div>
             </div>
         `;
 
-        // Add comment and save
         $("#comments-list").prepend(commentHtml);
         saveComments();
         form.reset();
@@ -54,18 +50,16 @@ $(document).ready(function () {
 
     // Delete comment handler
     $(document).on('click', '.delete-btn', function () {
-        if (confirm("Are you sure you want to delete this comment?")) {
+        if (confirm("Do you really want to remove this comment?")) {
             $(this).closest('.col-12').remove();
             saveComments();
         }
     });
 
-    // Save comments to localStorage
     function saveComments() {
         localStorage.setItem("petComments", $("#comments-list").html());
     }
 
-    // Load comments from localStorage
     function loadComments() {
         const saved = localStorage.getItem("petComments");
         if (saved) {
