@@ -1,35 +1,31 @@
 <!--This file created by: Kübra Veli-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Animal Guardians Hub</title>
-    <meta name="community"
-          content="Join a team of animal lovers making real change. Every helping hand counts.">
-    <meta name="values" content="animal care, volunteering, shelter work, community help">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Social Sharing Enhancements-->
-    <meta property="og:title" content="Help Speak Up for Shelter Pets – Be a Volunteer">
-    <meta property="og:community"
-          content="You can brighten a pet’s day. Be part of their journey to a new home.">
-    <meta property="og:image" content="../img/guardians-hero.jpg">
-    <!--Framework-->
+    <!--SEO meta tags-->
+    <meta name="community" content="Be part of a kind-hearted team making a real impact for animals.">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="values" content="volunteer work,helping animals,teamwork,kindness,local support">
+    <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--Fonts-->
+    <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap"
           rel="stylesheet">
-    <!--common CSS file-->
+    <!--CSS-->
     <link rel="stylesheet" href="../css/common.css">
 </head>
+
 <body>
+<!--header-->
 <header class="header">
-    <img src="../img/logo.png" alt="Logo" class="logo">
+    <a href="../index.html"><img src="../img/logo.png" alt="My Pet Story Logo" class="logo"></a>
     <h1>My Pet Story</h1>
     <p>Every pet deserves a happy ending</p>
 </header>
 
-<!--Navigation-->
+<!--Navigation bar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="volunteer.html">Volunteer</a>
@@ -49,83 +45,90 @@
     </div>
 </nav>
 
-<!--Content-->
+<!--Main content section-->
 <main class="content container">
-    <h2 class="mission-header mb-4">How Would You Like to Help?</h2>
-
-
-    <!--Form-->
-    <section aria-label="Volunteer Sign Up">
+    <!--Form title-->
+    <h2 class="mission-header mb-4 text-center">How would you like to help?</h2>
+    <!--Volunteer sign-up form-->
+    <section aria-label="Sign up to volunteer and help animals">
         <form id="guardian-application" novalidate>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label for="guardianName" class="form-label">What’s your name?</label>
+            <div class="row g-3 justify-content-center">
+                <!--Name input field-->
+                <div class="col-12 col-md-6">
+                    <label for="guardianName" class="form-label text-center w-100">Your name</label>
                     <input type="text" class="form-control" id="guardianName" required>
+                    <div class="invalid-feedback">Name should be 3 to 30 letters long</div>
                 </div>
-
-                <div class="col-md-6">
-                    <label for="guardianEmail" class="form-label">What’s your email?</label>
+                <!--Email input field-->
+                <div class="col-12 col-md-6">
+                    <label for="guardianEmail" class="form-label text-center w-100">Your email</label>
                     <input type="email" class="form-control" id="guardianEmail" required>
+                    <div class="invalid-feedback">That email doesn't seem right.Can you check again?</div>
                 </div>
-
-                <div class="col-12">
-                    <label for="guardianContact" class="form-label">Your phone</label>
+                <!--Phone input field-->
+                <div class="col-12 col-md-6">
+                    <label for="guardianContact" class="form-label text-center w-100">Phone Number</label>
                     <input type="tel" class="form-control" id="guardianContact"
-                           pattern="^\+?[1-9]\d{9,14}$"
-                           placeholder="+901234567890"
+                           pattern="^\+[1-9]\d{1,14}$"
+                           placeholder="+1234567890"
+                           maxlength="16"
                            required>
+                    <div class="invalid-feedback">Please enter a valid phone number.Valid format example: +1234567890
+                    </div>
                 </div>
-
-                <div class="col-md-6">
-                    <label for="servicePreference" class="form-label">Pick a role you would enjoy</label>
+                <!--Role selection dropdown-->
+                <div class="col-12 col-md-6">
+                    <label for="servicePreference" class="form-label text-center w-100">Where Do You Want to
+                        Help?</label>
                     <select class="form-select" id="servicePreference" required>
-                        <option value="">Where would you love to help?</option>
-                        <option value="Animal Socialization">Hanging out with animals</option>
-                        <option value="Event Management">Helping at events</option>
-                        <option value="Fund Development">Fundraising support</option>
-                        <option value="Operations">Behind-the-scenes work</option>
+                        <option value="">Choose a role that fits you best</option>
+                        <option value="Animal Socialization">Spending time with pets</option>
+                        <option value="Event Management">Assisting during events</option>
+                        <option value="Fund Development">Helping raise funds</option>
+                        <option value="Operations">Helping with daily tasks</option>
                     </select>
+                    <div class="invalid-feedback">You must choose a role</div>
                 </div>
-
-                <div class="col-md-6">
-                    <fieldset class="border p-3">
-                        <legend class="form-label">What are you great at?</legend>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="talents" id="talent1"
-                                   value="Communication">
-                            <label class="form-check-label" for="talent1">Talking clearly and kindly</label>
+                <!--Skills checkbox group-->
+                <div class="col-12 col-md-6">
+                    <div class="border p-3 rounded">
+                        <h5 class="mb-3">Your Strengths</h5>
+                        <div>
+                            <input type="checkbox" id="talent1" name="talents" value="Communication">
+                            <label for="talent1">Good at listening and expressing thoughts</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="talents" id="talent2"
-                                   value="Teamwork">
-                            <label class="form-check-label" for="talent2">Working well with others</label>
+                        <div>
+                            <input type="checkbox" id="talent2" name="talents" value="Teamwork">
+                            <label for="talent2">Like being part of a team</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="talents" id="talent3"
-                                   value="Organization">
-                            <label class="form-check-label" for="talent3">Keeping things organized</label>
+                        <div>
+                            <input type="checkbox" id="talent3" name="talents" value="Organization">
+                            <label for="talent3">Enjoy organizing things</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="talents" id="talent4"
-                                   value="Problem Solving">
-                            <label class="form-check-label" for="talent4">Finding smart solutions</label>
+                        <div>
+                            <input type="checkbox" id="talent4" name="talents" value="Problem Solving">
+                            <label for="talent4">Like solving problems</label>
                         </div>
-                    </fieldset>
+                        <div class="invalid-feedback mt-2">Pick one or more that match you best</div>
+                    </div>
                 </div>
             </div>
-
-            <button id="randomBtn" class="btn btn-success mt-5">Count me in!</button>
+            <!--Submit button-->
+            <div class="text-center mt-5">
+                <button id="randomBtn" class="btn btn-success">Yes,I Want to Help!</button>
+            </div>
         </form>
     </section>
 </main>
 
+<!--Footer-->
 <footer class="footer">
     <div class="container">
         <p>&copy; 2025 My Pet Story. All rights reserved.</p>
     </div>
 </footer>
 
-<!--Scripts-->
+<!--JavaScript dependencies-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../javascript/volunteer.js"></script>

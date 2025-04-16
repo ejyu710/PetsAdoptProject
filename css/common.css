@@ -19,29 +19,6 @@ body {
   position: relative;
 }
 
-/*Logo Styling-Added by Kübra Veli*/
-.logo {
-  width: 90px;
-  height: auto;
-  position: absolute;
-  top: 10px;
-  left: 20px;
-}
-
-/*Responsive for Small Screens-Added by Kübra Veli*/
-
-@media (max-width: 768px) {
-  .logo {
-    width: 50px;
-    top: 15px;
-    left: 15px;
-  }
-
-  .header {
-    padding-top: 60px;
-  }
-}
-
 .content {
   flex: 1;
   padding: 20px;
@@ -163,3 +140,32 @@ body {
   text-align: center;
 }
 
+/*logo position styling-Added by Kübra Veli*/
+.logo {
+  width: 90px;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+/*responsive adjustments for small screens-Added by Kübra Veli */
+@media (max-width: 768px) {
+  .logo {
+    width: 50px;
+    top: 15px;
+    left: 15px;
+  }
+  .header {
+    padding-top: 60px;
+  }
+}
+
+/*validation styling:highlights invalid form inputs with a red border-Added by Kübra Veli */
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+fieldset.is-invalid {
+  border: 1px solid #dc3545;
+}

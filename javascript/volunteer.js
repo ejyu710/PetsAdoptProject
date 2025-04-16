@@ -1,57 +1,80 @@
-// This file created by: Kübra Veli
+//This file created by: Kübra Veli
 
 
-$(document).ready(function () {
-    //Set up the volunteer role sections
-    $('[class^="role-info"]').collapse({toggle: false});
+$(document).ready(function() {
+    const form = $("#guardian-application");
 
-    //Handle form submission
-    $("#guardian-application").submit(function (e) {
-        e.preventDefault();
+    //Form submit event handler
+    form.submit(function(e) {
+        let isValid = true; //Form validity
+        e.preventDefault(); //Prevent default form submission
+        clearNotifications(); //Clear existing alerts
+        resetValidation(); //Reset form validation states
 
-        clearNotifications();
+        //Get form values from user
+        const name = $("#guardianName").val().trim();
+        const email = $("#guardianEmail").val().trim();
+        const phone = $("#guardianContact").val().trim();
+        const talents = $("input[name='talents']:checked").length;
+        const servicePref = $("#servicePreference").val().trim();
 
-        const contact = $("#guardianContact").val();
-        const email = $("#guardianEmail").val();
-        let isValid = true;
-
-        //Make sure email looks okay
+        //Validate Name
+        if (!/^[A-Za-z ]{3,30}$/.test(name)) {
+            $("#guardianName").addClass("is-invalid");
+            isValid = false;
+        }
+        //Validate Email
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            showNotification('Please enter a valid email address', 'danger');
+            $("#guardianEmail").addClass("is-invalid");
             isValid = false;
         }
-
-        //Make sure phone number has a valid format
-        if (!/^\+?[1-9]\d{9,14}$/.test(contact)) {
-            showNotification('Please enter a valid phone number', 'danger');
+        //Validate Phone
+        if (!/^\+[1-9]\d{1,14}$/.test(phone)) {
+            $("#guardianContact").addClass("is-invalid");
             isValid = false;
         }
-
-        //Make sure they picked at least one skill
-        if (!$("input[name='talents']:checked").length) {
-            showNotification('Please select at least one capability', 'warning');
+        //Validate Role Selection
+        if (!servicePref) {
+            $("#servicePreference").addClass("is-invalid");
             isValid = false;
         }
-
-        //Form process
+        //Validate Skills
+        if (talents === 0) {
+            $("input[name='talents']").closest("fieldset").addClass("is-invalid");
+            isValid = false;
+        }
+        //Final validation check
         if (isValid) {
-            showNotification('Application received! Thank you for your commitment.', 'success', 3000);
-            $(this)[0].reset();
+            showNotification("Thank you for signing up! We appreciate your kindness", "success", 3000);
+            form[0].reset(); //Reset form
+        } else {
+            showNotification("Please fix the errors in your form and try again", "danger");
         }
     });
 
-    //Show alerts with custom message and type
+    //Input change handler to clear validation states
+    $("input, select").on("input", function() {
+        $(this).removeClass("is-invalid");
+    });
+
+    //Function to show Bootstrap alerts
     function showNotification(message, type, timeout = 5000) {
-        const alert = $(`<div class="alert alert-${type} alert-dismissible fade show" role="alert">
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>`);
-        $('#guardian-application').prepend(alert);
-        if (timeout) setTimeout(() => alert.alert('close'), timeout);
+        const alert = $(`
+      <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    `);
+        form.prepend(alert); //Add alert to form
+        if (timeout) setTimeout(() => alert.alert("close"), timeout); //for auto-close alert
     }
 
-    //Remove all existing alerts
+    //Function to clear all notifications
     function clearNotifications() {
-        $('.alert').alert('close');
+        $(".alert").alert("close");
+    }
+    //Function to reset validation states
+    function resetValidation() {
+        $(".is-invalid").removeClass("is-invalid");
     }
 });

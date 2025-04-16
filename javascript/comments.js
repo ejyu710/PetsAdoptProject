@@ -1,28 +1,27 @@
-// This file created by: Kübra Veli
-$(document).ready(function () {
-    // Load existing comments
+//This file created by: Kübra Veli
+
+$(document).ready(function() {
+    //Load existing comments from localStorage
     loadComments();
-
-    $("#comment-form").submit(function (e) {
+    //Form submit event handler
+    $("#comment-form").submit(function(e) {
         const form = this;
-
-        // Check form validity
+        //Check form validity using HTML5 validation
         if (!form.checkValidity()) {
             e.preventDefault();
             e.stopPropagation();
             $(form).addClass('was-validated');
             return;
         }
-
-        e.preventDefault();
-
+        e.preventDefault(); //Prevent default form submission
+        //Collect form data
         const commentData = {
             name: $("#commentName").val().trim(),
             email: $("#commentEmail").val().trim(),
             text: $("#commentText").val().trim(),
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString() //Add timestamp
         };
-
+        //Create comment HTML template
         const commentHtml = `
             <div class="col-12">
                 <div class="card shadow-sm mb-3">
@@ -41,26 +40,25 @@ $(document).ready(function () {
                 </div>
             </div>
         `;
-
+        //Added new comment and save to localStorage
         $("#comments-list").prepend(commentHtml);
         saveComments();
-        form.reset();
+        form.reset(); //Reset form
         $(form).removeClass('was-validated');
     });
-
-    // Delete comment handler
+    //Delete comment event handler
     $(document).on('click', '.delete-btn', function () {
         if (confirm("Do you really want to remove this comment?")) {
             $(this).closest('.col-12').remove();
-            saveComments();
+            saveComments(); //Update localStorage
         }
     });
-
-    function saveComments() {
+    //Save comments to localStorage
+    function saveComments(){
         localStorage.setItem("petComments", $("#comments-list").html());
     }
-
-    function loadComments() {
+    //Load comments from localStorage
+    function loadComments(){
         const saved = localStorage.getItem("petComments");
         if (saved) {
             $("#comments-list").html(saved);
